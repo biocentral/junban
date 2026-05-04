@@ -2,6 +2,14 @@
 
 Junban (english: order) is a lightweight library for defining and executing sequential (scientific) workflows in Python.
 
+## Installation
+
+Junban is available via [pypi](https://pypi.org/project/junban/):
+
+```shell
+pip install junban
+```
+
 ## Quick Example
 
 Here is a simple example showing how to define a context and two steps. It showcases how context is passed between steps

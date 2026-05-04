@@ -1,6 +1,13 @@
 [project]
 name = "junban"
-version = "0.1.0"
-description = "Add your description here"
+version = "1.0.1"
+description = "Junban – Simple Sequential Python Workflows"
+authors = [
+    {name = "Sebastian Franz", email = "sebastian.franz@tum.de"},
+]
 requires-python = ">=3.11"
 dependencies = []
+
+[project.urls]
+Issues = "https://github.com/biocentral/junban/issues"
+Repository = "https://github.com/biocentral/junban"
