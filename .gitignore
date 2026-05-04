@@ -1,0 +1,5 @@
+/junban.egg-info/
+/.venv/
+/.idea/
+/build/
+/uv.lock
