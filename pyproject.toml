@@ -1,6 +1,6 @@
 [project]
 name = "junban"
-version = "1.0.2"
+version = "1.0.3"
 description = "Junban – Simple Sequential Python Workflows"
 authors = [
     {name = "Sebastian Franz", email = "sebastian.franz@tum.de"},
