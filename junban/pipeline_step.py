@@ -20,6 +20,11 @@ class PipelineStep(ABC, Generic[C]):
         """
         return True
 
+    def _skip(self, context: C) -> bool:
+        """ If this method returns True, the pipeline step will be skipped entirely.
+        Should not modify the context in any way."""
+        return False
+
     @abstractmethod
     def get_start_message(self) -> str:
         raise NotImplementedError
@@ -31,6 +36,9 @@ class PipelineStep(ABC, Generic[C]):
     @abstractmethod
     def _execute(self, context: C) -> C:
         raise NotImplementedError
+
+    def maybe_skip(self, context: C) -> bool:
+        return self._skip(context)
 
     def run(self, context: C) -> C:
         if not self._check_entry_assumptions(context):

@@ -41,9 +41,13 @@ class Pipeline(Generic[C]):
         current_context = context
         for step in self.steps:
             try:
-                self._log_info(f"[{self.name}] {step.get_start_message()}")
-                current_context = step.run(current_context)
-                self._log_info(f"[{self.name}] {step.get_end_message()}")
+                skip = step.maybe_skip(context)
+                if skip:
+                    self._log_info(f"[{self.name}] Skipping..")
+                else:
+                    self._log_info(f"[{self.name}] {step.get_start_message()}")
+                    current_context = step.run(current_context)
+                    self._log_info(f"[{self.name}] {step.get_end_message()}")
             except AssertionError as e:
                 self._log_error(f"[{self.name}] Assertion error in step {step.__class__.__name__}: {str(e)}")
                 raise
